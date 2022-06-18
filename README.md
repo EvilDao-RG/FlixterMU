@@ -42,7 +42,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/GBNBA51' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![VIdeoWalkthrough](https://user-images.githubusercontent.com/74514519/174421465-ce5718dd-7555-4d33-aaa6-45b37975bcc1.gif)
+
+Link to GIF; https://imgur.com/a/GBNBA51
 
 GIF created with [Adobe](https://express.adobe.com/tools/convert-to-gif).
 
