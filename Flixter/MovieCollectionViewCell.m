@@ -8,5 +8,4 @@
 #import "MovieCollectionViewCell.h"
 
 @implementation MovieCollectionViewCell
-
 @end
