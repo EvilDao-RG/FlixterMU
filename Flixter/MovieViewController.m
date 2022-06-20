@@ -12,7 +12,8 @@
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+//@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
@@ -24,6 +25,8 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     // Loading data from the web
     [self fetchMovies];
     // Refresh control setup
@@ -34,7 +37,7 @@
 
 // Fetches data from the web
 - (void)fetchMovies {
-    [self.loadingIndicator startAnimating];
+    //[self.loadingIndicator startAnimating];
     // Making the request to the API
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=60403b0c608ff580639e5a011ac4aabe"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -56,7 +59,7 @@
            }
         [self.refreshControl endRefreshing];
        }];
-    [self.loadingIndicator stopAnimating];
+    //[self.loadingIndicator stopAnimating];
     [task resume];
 
 }
