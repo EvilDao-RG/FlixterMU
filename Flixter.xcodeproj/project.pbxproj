@@ -20,6 +20,8 @@
 		8E7927E5285A50BC00AE4BBB /* FlixterUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7927E4285A50BC00AE4BBB /* FlixterUITestsLaunchTests.m */; };
 		8E7927F3285A732100AE4BBB /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7927F2285A732100AE4BBB /* MovieViewController.m */; };
 		8E7927F9285AA5A100AE4BBB /* movieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7927F8285AA5A100AE4BBB /* movieCell.m */; };
+		8E8E052A28622E4E003C4CB8 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E052928622E4E003C4CB8 /* APIManager.m */; };
+		8E8E052D28623334003C4CB8 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E052C28623334003C4CB8 /* Movie.m */; };
 		8EC71575285BE7D000E92551 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC71574285BE7D000E92551 /* DetailsViewController.m */; };
 		8ED87AA0285D1B87006F2E44 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED87A9F285D1B87006F2E44 /* CollectionViewController.m */; };
 		8ED87AA3285D21D6006F2E44 /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED87AA2285D21D6006F2E44 /* MovieCollectionViewCell.m */; };
@@ -66,6 +68,10 @@
 		8E7927F2285A732100AE4BBB /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		8E7927F7285AA5A100AE4BBB /* movieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = movieCell.h; sourceTree = "<group>"; };
 		8E7927F8285AA5A100AE4BBB /* movieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = movieCell.m; sourceTree = "<group>"; };
+		8E8E052828622E4E003C4CB8 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		8E8E052928622E4E003C4CB8 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		8E8E052B28623334003C4CB8 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		8E8E052C28623334003C4CB8 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		8EC71573285BE7D000E92551 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		8EC71574285BE7D000E92551 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		8ED87A9E285D1B87006F2E44 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
@@ -152,6 +158,8 @@
 				8E7927C0285A50BB00AE4BBB /* SceneDelegate.m */,
 				8ED87AA2285D21D6006F2E44 /* MovieCollectionViewCell.m */,
 				8E7927C5285A50BB00AE4BBB /* Main.storyboard */,
+				8E8E052828622E4E003C4CB8 /* APIManager.h */,
+				8E8E052928622E4E003C4CB8 /* APIManager.m */,
 				8ED87AA1285D21D6006F2E44 /* MovieCollectionViewCell.h */,
 				8ED87A9E285D1B87006F2E44 /* CollectionViewController.h */,
 				8ED87A9F285D1B87006F2E44 /* CollectionViewController.m */,
@@ -165,6 +173,8 @@
 				8E7927CE285A50BC00AE4BBB /* main.m */,
 				8E7927F1285A732100AE4BBB /* MovieViewController.h */,
 				8E7927F2285A732100AE4BBB /* MovieViewController.m */,
+				8E8E052B28623334003C4CB8 /* Movie.h */,
+				8E8E052C28623334003C4CB8 /* Movie.m */,
 			);
 			path = Flixter;
 			sourceTree = "<group>";
@@ -436,6 +446,8 @@
 			files = (
 				8E7927BE285A50BB00AE4BBB /* AppDelegate.m in Sources */,
 				8ED87AA0285D1B87006F2E44 /* CollectionViewController.m in Sources */,
+				8E8E052D28623334003C4CB8 /* Movie.m in Sources */,
+				8E8E052A28622E4E003C4CB8 /* APIManager.m in Sources */,
 				8E7927F9285AA5A100AE4BBB /* movieCell.m in Sources */,
 				8ED87AA3285D21D6006F2E44 /* MovieCollectionViewCell.m in Sources */,
 				8E7927CF285A50BC00AE4BBB /* main.m in Sources */,

@@ -20,10 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.titleLabel.text = self.movie[@"title"];
-    self.descriptionLabel.text = self.movie[@"overview"];
+    self.titleLabel.text = self.movie.title;
+    self.descriptionLabel.text = self.movie.synopsis;
     NSString *baseImageURL = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterPath = self.movie[@"poster_path"];
+    NSString *posterPath = self.movie.posterUrl;
     NSString *fullImageURL = [baseImageURL stringByAppendingString:posterPath];
     NSURL *posterURL = [NSURL URLWithString:fullImageURL];
     [self.posterView setImageWithURL:posterURL];

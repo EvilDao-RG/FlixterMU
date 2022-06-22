@@ -9,6 +9,8 @@
 #import "MovieCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
+#import "APIManager.h"
+#import "Movie.h"
 
 @interface CollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -36,28 +38,16 @@
 
 - (void)fetchMovies {
     [self.loadingIndicator startAnimating];
-    // Making the request to the API
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=60403b0c608ff580639e5a011ac4aabe"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-           if (error != nil) {
-               NSLog(@"%@", [error localizedDescription]);
-               UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Connection failed" message: @"Movies could not be loaded" preferredStyle:UIAlertControllerStyleAlert];
-               UIAlertAction *reload = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *reload){
-               }];
-               [alert addAction:reload];
-               [self presentViewController:alert animated:YES completion:nil];
-           }
-           else {
-               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               self.myMovies = dataDictionary[@"results"];
-               [self.collectionView reloadData];
-           }
-        [self.refreshControl endRefreshing];
-       }];
+
+    APIManager *manager = [APIManager new];
+    [manager fetchNowPlaying:^(NSArray *movies, NSError *error) {
+        self.myMovies = movies;
+        [self.collectionView reloadData];
+    }];
+    
+    [self.refreshControl endRefreshing];
     [self.loadingIndicator stopAnimating];
-    [task resume];
+
 }
 
 // Assigns the number of sections in the collection
@@ -70,9 +60,9 @@
     // Prepares each cell to be loaded
     MovieCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionViewCell" forIndexPath:indexPath];
     // Getting the image URL
-    NSDictionary *movie = self.myMovies[indexPath.item];
+    Movie *movie = self.myMovies[indexPath.item];
     NSString *baseImageURL = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterPath = movie[@"poster_path"];
+    NSString *posterPath = movie.posterUrl;
     NSString *fullImageURL = [baseImageURL stringByAppendingString:posterPath];
     NSURL *posterURL = [NSURL URLWithString:fullImageURL];
     // Setting the image with the URL
@@ -102,7 +92,7 @@
     if(isSegue){
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         NSLog(@"%@", self.myMovies[indexPath.item]);
-        NSDictionary *dataToPass = self.myMovies[indexPath.row];
+        Movie *dataToPass = self.myMovies[indexPath.row];
         DetailsViewController *destiny = [segue destinationViewController];
         destiny.movie = dataToPass;
     }
